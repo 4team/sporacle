@@ -27,7 +27,7 @@
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan base-package="org.maruhan.service"></context:component-scan>
 	<context:component-scan base-package="org.maruhan.persistence"></context:component-scan>
-	
+	<context:component-scan base-package="org.maruhan.controller"></context:component-scan>
 	
 	
 </beans>
