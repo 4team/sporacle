@@ -5,7 +5,7 @@ import java.util.List;
 import org.maruhan.domain.BoardVO;
 import org.maruhan.persistence.AbstractCRUDMapper;
 
-public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implements BoardService {
+public class BoardServiceImpl extends AbstractCRUDMapper<BoardVO, Integer> implements BoardService {
 
 	@Override
 	public List<BoardVO> listAll() throws Exception {
