@@ -8,7 +8,7 @@
 		values(seq_board.nextval,#{title},#{content},#{writer},sysdate)
 	</insert>
 	
-	<select id="read" resultType="org.maruhan.board.BoardDTO">
+	<select id="read" resultType="org.maruhan.domain.BoardVO">
 		select * from tbl_board where bno=#{bno}
 	</select>
 	
