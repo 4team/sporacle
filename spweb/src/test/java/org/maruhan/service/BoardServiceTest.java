@@ -1,5 +1,7 @@
 package org.maruhan.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.maruhan.domain.BoardVO;
@@ -13,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class BoardServiceTest {
 	
 	@Autowired
-	private BoardService service;
+	private BoardMapper service;
 	
 	
 	@Test
@@ -38,6 +40,11 @@ public class BoardServiceTest {
 	@Test
 	public void delete() throws Exception{
 		service.delete(2098);
+	}
+	
+	@Test
+	public void list() throws Exception{
+		List<BoardVO> list = service.listAll();
 	}
 	
 }
