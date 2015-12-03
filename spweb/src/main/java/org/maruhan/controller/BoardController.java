@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.maruhan.domain.BoardVO;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -66,8 +68,6 @@ public class BoardController {
 	@RequestMapping(value = "/read" , method= RequestMethod.GET)
 	public String readGET(Model model, @RequestParam("bno") int bno) throws Exception{
 		logger.info("Read get......");
-		
-		BoardVO vo = 
 		
 		model.addAttribute("result", "success");
 		

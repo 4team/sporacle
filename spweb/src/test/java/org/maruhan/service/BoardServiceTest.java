@@ -1,5 +1,7 @@
 package org.maruhan.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.maruhan.domain.BoardVO;
@@ -15,7 +17,6 @@ public class BoardServiceTest {
 	@Autowired
 	private BoardService service;
 	
-	
 	@Test
 	public void view() throws Exception{
 		System.out.println(service);
@@ -27,17 +28,25 @@ public class BoardServiceTest {
 		dto.setTitle("테스트 제목입니다.");
 		dto.setContent("테스트 내용입니다요.");
 		dto.setWriter("테스터");
-		service.create(dto);
+		service.regist(dto);
 	}
 	
 	@Test
 	public void read() throws Exception{
-		System.out.println(service.read(2099));
+		System.out.println(service.view(2099));
 	}
 	
 	@Test
 	public void delete() throws Exception{
-		service.delete(2098);
+		service.remove(2141);
+	}
+	
+	@Test
+	public void list() throws Exception{
+		List<BoardVO> list = service.list();
+		for (BoardVO board : list) {
+			System.out.println(board);
+		}
 	}
 	
 }
