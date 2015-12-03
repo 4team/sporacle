@@ -2,7 +2,6 @@ package org.maruhan.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.maruhan.domain.BoardVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
