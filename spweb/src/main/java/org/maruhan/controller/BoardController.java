@@ -17,6 +17,7 @@ public class BoardController {
 	
 	//@Autowired
 	//private BoardService service;
+	//은혜가 추가 수정함.
 	
 	
 	@RequestMapping(value = "/list" , method= RequestMethod.GET)
