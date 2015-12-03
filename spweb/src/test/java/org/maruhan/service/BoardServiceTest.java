@@ -17,7 +17,6 @@ public class BoardServiceTest {
 	@Autowired
 	private BoardMapper service;
 	
-	
 	@Test
 	public void view() throws Exception{
 		System.out.println(service);
@@ -45,6 +44,9 @@ public class BoardServiceTest {
 	@Test
 	public void list() throws Exception{
 		List<BoardVO> list = service.listAll();
+		for (BoardVO board : list) {
+			System.out.println(board);
+		}
 	}
 	
 }
