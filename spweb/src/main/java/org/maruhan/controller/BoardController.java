@@ -1,6 +1,6 @@
 package org.maruhan.controller;
 
-import org.maruhan.service.BoardService;
+import org.maruhan.service.BoardMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
