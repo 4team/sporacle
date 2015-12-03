@@ -17,7 +17,6 @@ public class BoardServiceTest {
 	@Autowired
 	private BoardMapper service;
 	
-	
 	@Test
 	public void view() throws Exception{
 		System.out.println(service);
