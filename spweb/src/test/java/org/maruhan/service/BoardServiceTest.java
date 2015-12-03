@@ -45,6 +45,9 @@ public class BoardServiceTest {
 	@Test
 	public void list() throws Exception{
 		List<BoardVO> list = service.listAll();
+		for (BoardVO board : list) {
+			System.out.println(board);
+		}
 	}
 	
 }

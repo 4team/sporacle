@@ -3,6 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.maruhan.service.BoardMapper">
+	<resultMap type="org.maruhan.domain.BoardVO" id="listResult">
+		<id property="bno" column="bno"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<result property="regdate" column="regdate"/>
+		<result property="updatedate" column="updatedate"/>
+	</resultMap>
+
 	<insert id="create">
 		insert into tbl_board(BNO,TITLE,CONTEXT,WRITER,REGDATE)
 		values(seq_board.nextval,#{title},#{content},#{writer},sysdate)
@@ -24,7 +33,7 @@
 		where bno = #{bno}
 	</update>
 
-	<select id="list" resultType="map">
+	<select id="list" resultMap="listResult">
 		select * from tbl_board
 	</select>
 
