@@ -3,12 +3,7 @@ package org.maruhan.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 import org.maruhan.domain.BoardVO;
-
-
->>>>>>> refs/remotes/origin/master
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
