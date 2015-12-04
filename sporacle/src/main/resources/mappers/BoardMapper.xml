@@ -3,6 +3,14 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.maruhan.persistence.BoardMapper">
+	<resultMap type="org.maruhan.domain.BoardVO" id="listResult">
+		<id property="bno" column="bno" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="writer" column="writer" />
+		<result property="regdate" column="regdate" />
+		<result property="viewcount" column="viewcount" />
+	</resultMap>
 	<insert id="create">
 		insert into
 		tbl_board(BNO,TITLE,CONTENT,WRITER,REGDATE)
@@ -27,12 +35,40 @@
 		where bno = #{bno}
 	</update>
 
+	<select id="list" resultMap="listResult">
+	<![CDATA[
+		select bno,title,content,writer,regdate,viewcount 
+		from 
+		(
+		select /*+INDEX_DESC(tbl_board pk_board)*/
+		rownum rn, bno, title, content, writer,regdate, viewcount
+		from tbl_board
+		where bno > 0 
+		and rownum <=20
+		)
+		where rn > 10
+		]]>
+	</select>
+
 
 	<sql id="cri">
 		<if test="type != null">
+			<if test="type eq 't'.toString()">
+				and title like CONCAT('%'||#{keyword},'%')
+			</if>
+			<if test="type eq 'c'.toString()">
+				and content like CONCAT('%'||#{keyword},'%')
+			</if>
 			<if test="type eq 'w'.toString()">
 				and writer like CONCAT('%'||#{keyword},'%')
 			</if>
+			<if test="type eq 'tc'.toString()">
+				and (title like CONCAT('%'||#{keyword},'%') or content like CONCAT('%'||#{keyword},'%'))
+			</if>
+			<if test="type eq 'tw'.toString()">
+				and (title like CONCAT('%'||#{keyword},'%') or writer like CONCAT('%'||#{keyword},'%'))
+			</if>
+			
 		</if>
 	</sql>
 
@@ -46,7 +82,7 @@
 				from tbl_board
 				where bno> 0
 		]]>
-			<include refid="cri"></include>
+		<include refid="cri"></include>
 		<![CDATA[
 				and rownum <=#{pageNo} * #{perPage}
 			)
@@ -58,7 +94,7 @@
 	<![CDATA[
 			select count(*) from tbl_board where bno> 0
 	]]>
-	<include refid="cri"></include>
+		<include refid="cri"></include>
 	</select>
 
 </mapper>

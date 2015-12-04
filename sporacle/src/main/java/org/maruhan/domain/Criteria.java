@@ -9,6 +9,7 @@ public class Criteria {
 	private String keyword;
 	
 	
+	
 	public Criteria(){
 		this.pageNo = 1;
 		this.perPage = 10;

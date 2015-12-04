@@ -9,48 +9,63 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private Date updatedate;
-	
-	public int getBbo() {
+	private int viewcount;
+	private int reccount;
+	public int getBno() {
 		return bno;
 	}
-	public void setBbo(int bNO) {
-		bno = bNO;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
 	public String getTitle() {
 		return title;
 	}
-	public void setTitle(String tITLE) {
-		title = tITLE;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;
 	}
-	public void setContent(String cONTEXT) {
-		content = cONTEXT;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getWriter() {
 		return writer;
 	}
-	public void setWriter(String wRITER) {
-		writer = wRITER;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
-	public Date getRdgdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
-	public void setRegdat(Date rEGDATE) {
-		regdate = rEGDATE;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 	public Date getUpdatedate() {
 		return updatedate;
 	}
-	public void setUpdatedate(Date uPDATEDATE) {
-		updatedate = uPDATEDATE;
+	public void setUpdatedate(Date updatedate) {
+		this.updatedate = updatedate;
 	}
-	
+	public int getViewcount() {
+		return viewcount;
+	}
+	public void setViewcount(int viewcount) {
+		this.viewcount = viewcount;
+	}
+	public int getReccount() {
+		return reccount;
+	}
+	public void setReccount(int reccount) {
+		this.reccount = reccount;
+	}
 	@Override
 	public String toString() {
-		return "BNO=" + bno + ", TITLE=" + title + ", CONTEXT=" + content + ", WRITER=" + writer
-				+ ", REGDATE=" + regdate + ", UPDATEDATE=" + updatedate + "\n";
+		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
+				+ regdate + ", updatedate=" + updatedate + ", viewcount=" + viewcount + ", reccount=" + reccount + "]";
 	}
 	
+	
+	
+
 }

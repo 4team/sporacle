@@ -18,5 +18,10 @@ public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implem
 		return session.selectOne(namespace+".searchCount");
 	}
 
+	@Override
+	public List<BoardVO> listAll() {
+		return session.selectList(namespace+".list");
+	}
+
 	
 }
