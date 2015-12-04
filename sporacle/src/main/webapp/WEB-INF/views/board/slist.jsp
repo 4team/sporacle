@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Search List View</title>
+
+<%@include file="../include/header.jsp"%>
 <style>
-#searchList{
+ #searchList{
 	width: 100%;
 	
 }
@@ -18,9 +15,27 @@
 	padding : 10px;
 }
 
+#searchList th{
+	font-weight: bold;
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+td{
+	padding: 2px 0px 2px 5px;
+	font-size: 12px;
+	
+}
+
 #searchList tr:hover{
 	background-color: #FFFFEF;
 }
+
+#searchList tr td a{
+	text-decoration: none;
+	color:#000000;
+}
+
 
 ul li {
 	float: left;
@@ -30,29 +45,26 @@ ul li {
 }
 
 #wrapper{
-	width:600px;
+	width:100%;
 }
 
 #searchPage {
-	margin-left:50%;
+	width:600px;
+	margin-left: 30%;
 }
 </style>
-</head>
-<body>
-	<h1>List Page</h1>
 
 
+<h1>List Page</h1>
 	${cri.toString()}
-
-	<p></p>
-
 	<table id="searchList">
+		<th>번호</th><th>제목</th><th>작성자</th><th>올린 날짜</th>
 		<c:forEach var="list" items="${list}">
 			<tr>
-				<td>번호 : ${list.bno}</td>
-				<td>제목 : ${list.title}</td>
-				<td>작성자 : ${list.writer}</td>
-				<td>등록일 : ${list.regdate}</td>
+				<td>${list.bno}</td>
+				<td><a href='"/board/read?bno="${list.bno}'>${list.title}</a></td>
+				<td>${list.writer}</td>
+				<td>${list.regdate}</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -139,6 +151,6 @@ ul li {
 
 				});
 	</script>
-
+<%@include file="../include/footer.jsp"%>
 </body>
 </html>

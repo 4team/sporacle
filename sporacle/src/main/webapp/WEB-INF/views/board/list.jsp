@@ -5,7 +5,7 @@
 
 <%@include file="../include/header.jsp"%>
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -48,8 +48,6 @@
 		</ul>
 	</div>
 
-</div>
-<!-- /.content-wrapper -->
 
 <script src="pageMaker.js"></script>
 <script>
