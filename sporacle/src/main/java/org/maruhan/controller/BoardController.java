@@ -36,7 +36,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/list" , method= RequestMethod.GET)
 	public void listAll(@ModelAttribute("cri")Criteria cri, Model model) throws Exception{
-		logger.info("BoardCo\]pontroller........ info");
+		logger.info("BoardController........ info");
 		cri.setKeyword("w");
 		
 //		List<BoardVO> list = new ArrayList<BoardVO>();
