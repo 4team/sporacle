@@ -1,5 +1,7 @@
 package org.maruhan.controller;
 
+import java.util.List;
+
 import org.maruhan.domain.BoardVO;
 import org.maruhan.domain.Criteria;
 import org.maruhan.service.BoardService;
@@ -24,10 +26,14 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/slist")
-	public String listSearch(@ModelAttribute("cri")Criteria cri) throws Exception{
+	public String listSearch(@ModelAttribute("cri")Criteria cri,Model model) throws Exception{
 		logger.info("================================");
 		logger.info(cri.toString());
 		logger.info("================================");
+		
+		List<BoardVO> list  = service.search(cri);
+		System.out.println(list);
+		model.addAttribute("list",list);
 		return "/board/slist";
 		
 	}

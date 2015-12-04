@@ -41,9 +41,10 @@ public class BoardControllerTest {
 	@Test
 	public void boardTest() throws Exception{
 		System.out.println("호출됨....");
-    	MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/")
+    	MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/board/slist")
     			.param("pageNo", "2")
     			.param("type", "w")
+    			.param("keyword", "안녕")
     			).andReturn();
     	
     	ModelAndView mav = result.getModelAndView();

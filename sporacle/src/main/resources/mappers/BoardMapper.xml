@@ -36,7 +36,7 @@
 		where bno = #{bno}
 	</update>
 
-	<select id="list" resultMap="org.maruhan.domain.BoardVO">
+	<select id="list" resultMap="listResult">
 	<![CDATA[
 		select *
 		from 
@@ -73,7 +73,7 @@
 		</if>
 	</sql>
 
-	<select id="search" resultType="org.maruhan.domain.BoardVO">
+	<select id="search" resultMap="listResult">
 		 <![CDATA[
 			select *
 			from

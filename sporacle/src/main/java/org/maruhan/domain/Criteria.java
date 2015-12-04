@@ -3,7 +3,7 @@ package org.maruhan.domain;
 public class Criteria {
 	
 	private int pageNo;
-	private double perPage;
+	private int perPage;
 
 	private String type;
 	private String keyword;
@@ -30,7 +30,7 @@ public class Criteria {
 		return perPage;
 	}
 
-	public void setPerPage(double perPage) {
+	public void setPerPage(int perPage) {
 		this.perPage = perPage;
 	}
 
@@ -52,7 +52,7 @@ public class Criteria {
 
 	@Override
 	public String toString() {
-		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", type=" + type + ", keyword=" + keyword + "]";
+		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", type=" + type + ", keyword=" + keyword + "]\n";
 	}
 
 	
