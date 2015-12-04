@@ -2,6 +2,8 @@ package org.maruhan.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.maruhan.domain.BoardVO;
 import org.maruhan.domain.Criteria;
 import org.maruhan.service.BoardService;
@@ -25,17 +27,21 @@ public class BoardController {
 	private BoardService service;
 	
 	
-	@RequestMapping(value="/slist")
-	public String listSearch(@ModelAttribute("cri")Criteria cri,Model model) throws Exception{
+	@RequestMapping(value="/slist", method= RequestMethod.GET)
+	public void listSearch(@ModelAttribute("cri")Criteria cri , Model model) throws Exception{
+		
 		logger.info("================================");
 		logger.info(cri.toString());
 		logger.info("================================");
 		
+		int totalCount = service.totalCount(cri);
+		System.out.println(totalCount);
+		
+		cri.setTotalCount(totalCount);
 		List<BoardVO> list  = service.search(cri);
 		System.out.println(list);
-		model.addAttribute("list",list);
-		return "/board/slist";
 		
+		model.addAttribute("list",list);
 	}
 	
 	
@@ -70,8 +76,10 @@ public class BoardController {
 		
 		return "/board/success";
 	}
+	
+	
 	@RequestMapping(value = "/read" , method= RequestMethod.GET)
-	public String readGET(@RequestParam("bno") int bno, Model model) throws Exception{
+	public String readGET(@ModelAttribute("cri")Criteria cri,@RequestParam("bno") int bno, Model model) throws Exception{
 		logger.info("Read get......");
 		
 		model.addAttribute("read", service.view(bno));

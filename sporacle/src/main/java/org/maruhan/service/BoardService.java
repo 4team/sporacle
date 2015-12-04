@@ -38,4 +38,7 @@ public class BoardService {
 		return mapper.search(cri);
 	}
 	
+	public int totalCount(Criteria cri) throws Exception{
+		return mapper.searchCount(cri);
+	}
 }

@@ -62,7 +62,7 @@ ul li {
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.bno}</td>
-				<td><a href='"/board/read?bno="${list.bno}'>${list.title}</a></td>
+				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}'>${list.title}</a></td>
 				<td>${list.writer}</td>
 				<td>${list.regdate}</td>
 			</tr>
@@ -71,24 +71,28 @@ ul li {
 
 	<p></p>
 
+
 	<div id="wrapper">
 		<div id="searchPage">
-			<select id="searchType">
+	<form>
+			<select id="searchType" name="type">
 				<option value="n">-</option>
 				<option value="t">제목</option>
 				<option value="c">내용</option>
 				<option value="w">작성자</option>
 				<option value="tc">제목+내용</option>
 				<option value="tw">제목+작성자</option>
-			</select> <input id="keyword" type="text" name="keyword">
+			</select> 
+				<input id="keyword" type="text" name="keyword">
+				<input type="submit" value="검색">
+	</form>
 
 
 			<ul class="pagination" id="pageUL">
 			</ul>
 		</div>
 	</div>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 	<script>
 		function makePage(criteria) {
 			var startPage, endPage, prev, next;
@@ -126,12 +130,14 @@ ul li {
 		$(document).ready(
 				function() {
 					var cri = {
-						pageNo : 2,
-						totalCount : 138,
-						perPage : 10,
-						searchType : 'w',
-						keyword : '안녕'
+						pageNo : ${cri.pageNo},
+						totalCount : ${cri.totalCount},
+						perPage : ${cri.perPage},
+						searchType : '${cri.type}',
+						keyword : '${cri.keyword}'
 					};
+					
+					console.log(cri);
 					var targetUL = $("#pageUL");
 					targetUL.html(makePage(cri));
 

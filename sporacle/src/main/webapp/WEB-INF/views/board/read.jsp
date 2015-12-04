@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@include file="../include/header.jsp" %>
-
+${cri.toString()}
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -27,8 +27,9 @@
         	
         			<!--<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></td>
         			<td><span class="badge bg-red">${boradVO.viewcnt}</span></td>-->
-        		   
-<form action="/board/list">
+        
+<form action="/board/slist" method="get">
+<input type="hidden" value="${cri.pageNo}" name="pageNo">
 <input type="submit" value="목록">
 </form>
 		   

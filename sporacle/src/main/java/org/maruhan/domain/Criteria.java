@@ -4,6 +4,7 @@ public class Criteria {
 	
 	private int pageNo;
 	private int perPage;
+	private int totalCount;
 
 	private String type;
 	private String keyword;
@@ -16,7 +17,13 @@ public class Criteria {
 	}
 	
 	
-	
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
 
 	public int getPageNo() {
 		return pageNo;
@@ -50,10 +57,11 @@ public class Criteria {
 		this.keyword = keyword;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", type=" + type + ", keyword=" + keyword + "]\n";
+		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", totalCount=" + totalCount + ", type=" + type
+				+ ", keyword=" + keyword + "]";
 	}
 
-	
 }
