@@ -10,8 +10,8 @@
 	 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 	 	<property name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.0.36:1524:XE"></property>
-	 	<property name="username" value="user40"></property>
-	 	<property name="password" value="user40"></property>
+	 	<property name="username" value="user42"></property>
+	 	<property name="password" value="dmsgP"></property>
 	 </bean>
 	 
 	 
@@ -29,5 +29,6 @@
 
 	<context:annotation-config></context:annotation-config>
 	<context:component-scan base-package="org.maruhan.persistence"></context:component-scan>
-	 		<context:component-scan base-package="org.maruhan.service"></context:component-scan>
+	 <context:component-scan base-package="org.maruhan.service"></context:component-scan>
+	 <context:component-scan base-package="org.maruhan.domain"></context:component-scan>
 </beans>

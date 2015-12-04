@@ -34,25 +34,14 @@ public class BoardController {
 	
 	
 
-	@RequestMapping(value = "/list" , method= RequestMethod.GET)
-	public void listAll(@ModelAttribute("cri")Criteria cri, Model model) throws Exception{
+	@RequestMapping(value = "/list")
+	public String listAll(@ModelAttribute("cri")Criteria cri, Model model) throws Exception{
 		logger.info("BoardController........ info");
 		cri.setKeyword("w");
 		
-//		List<BoardVO> list = new ArrayList<BoardVO>();
-//		for (int i = 0; i < 10; i++) {
-//			BoardVO vo = new BoardVO();
-//			vo.setBno(i);
-//			vo.setTitle("제목"+i);
-//			vo.setWriter("작성자"+i);
-//			vo.setContent("내용"+i);
-//			list.add(vo);
-//		}
-//		
-//		model.addAttribute("list",list);
-		
-		
 		model.addAttribute("list", service.list());
+		return "/board/list";
+		
 	}
 	
 	

@@ -19,7 +19,7 @@ public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implem
 	}
 
 	@Override
-	public List<BoardVO> listAll() {
+	public List<BoardVO> list() {
 		return session.selectList(namespace+".list");
 	}
 

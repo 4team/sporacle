@@ -9,8 +9,8 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private Date updatedate;
-	private int viewcount;
-	private int reccount;
+
+	
 	public int getBno() {
 		return bno;
 	}
@@ -47,22 +47,11 @@ public class BoardVO {
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
-	public int getViewcount() {
-		return viewcount;
-	}
-	public void setViewcount(int viewcount) {
-		this.viewcount = viewcount;
-	}
-	public int getReccount() {
-		return reccount;
-	}
-	public void setReccount(int reccount) {
-		this.reccount = reccount;
-	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", updatedate=" + updatedate + ", viewcount=" + viewcount + ", reccount=" + reccount + "]";
+				+ regdate + ", updatedate=" + updatedate + "]\n";
 	}
 	
 	

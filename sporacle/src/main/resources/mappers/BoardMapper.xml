@@ -9,8 +9,9 @@
 		<result property="content" column="content" />
 		<result property="writer" column="writer" />
 		<result property="regdate" column="regdate" />
-		<result property="viewcount" column="viewcount" />
+		<result property="updatedate" column="updatedate" />
 	</resultMap>
+	
 	<insert id="create">
 		insert into
 		tbl_board(BNO,TITLE,CONTENT,WRITER,REGDATE)
@@ -35,13 +36,13 @@
 		where bno = #{bno}
 	</update>
 
-	<select id="list" resultMap="listResult">
+	<select id="list" resultMap="org.maruhan.domain.BoardVO">
 	<![CDATA[
-		select bno,title,content,writer,regdate,viewcount 
+		select *
 		from 
 		(
 		select /*+INDEX_DESC(tbl_board pk_board)*/
-		rownum rn, bno, title, content, writer,regdate, viewcount
+		rownum rn, bno, title, content, writer,regdate, updatedate
 		from tbl_board
 		where bno > 0 
 		and rownum <=20
