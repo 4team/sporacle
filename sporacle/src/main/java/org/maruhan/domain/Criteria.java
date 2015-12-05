@@ -2,9 +2,10 @@ package org.maruhan.domain;
 
 public class Criteria {
 	
-	private int pageNo;
+	private Integer pageNo;
 	private int perPage;
 	private int totalCount;
+	private Integer bno;
 
 	private String type;
 	private String keyword;
@@ -17,6 +18,35 @@ public class Criteria {
 	}
 	
 	
+	public String getLink(){
+		String str = "pageNo="+getPageNo();
+		
+		if(bno!=null){
+			str+="&bno="+getBno();
+		}
+		
+		if(type!=null){
+			str+="&type="+getType();
+		}
+		
+		if(keyword!=null){
+			str+="&keyword="+getKeyword();
+		}
+		return str;
+	}
+	
+	
+	
+	
+	public Integer getBno() {
+		return bno;
+	}
+
+
+	public void setBno(Integer bno) {
+		this.bno = bno;
+	}
+
 	public int getTotalCount() {
 		return totalCount;
 	}
@@ -25,11 +55,11 @@ public class Criteria {
 		this.totalCount = totalCount;
 	}
 
-	public int getPageNo() {
+	public Integer getPageNo() {
 		return pageNo;
 	}
 
-	public void setPageNo(int pageNo) {
+	public void setPageNo(Integer pageNo) {
 		this.pageNo = pageNo;
 	}
 
@@ -60,8 +90,8 @@ public class Criteria {
 
 	@Override
 	public String toString() {
-		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", totalCount=" + totalCount + ", type=" + type
-				+ ", keyword=" + keyword + "]";
+		return "Criteria [pageNo=" + pageNo + ", perPage=" + perPage + ", totalCount=" + totalCount + ", bno=" + bno
+				+ ", type=" + type + ", keyword=" + keyword + "]\n";
 	}
 
 }

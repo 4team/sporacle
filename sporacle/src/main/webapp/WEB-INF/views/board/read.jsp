@@ -4,7 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@include file="../include/header.jsp" %>
-${cri.toString()}
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+${cri.getLink()}
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -27,11 +29,7 @@ ${cri.toString()}
         	
         			<!--<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></td>
         			<td><span class="badge bg-red">${boradVO.viewcnt}</span></td>-->
-        
-<form action="/board/slist" method="get">
-<input type="hidden" value="${cri.pageNo}" name="pageNo">
-<input type="submit" value="목록">
-</form>
+<button id="listButton">목록</button>
 		   
 <form action="/board/modify">
 <input type="hidden" name="bno" value="${read.bno}">
@@ -47,6 +45,23 @@ ${cri.toString()}
       </div><!-- /.content-wrapper -->
      
 <%@include file="../include/footer.jsp"%>
+
+<script>
+console.log("뷰 페이지....");
+
+		
+var listButton = $("#listButton");
+console.log(listButton);
+
+listButton.on("click",function(event){
+	event.preventDefault();
+	console.log(this);
+	self.location = '/board/slist?${cri.getLink()}';
+});
+
+	
+</script>
+
 
  </body>
 </html>

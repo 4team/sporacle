@@ -62,7 +62,7 @@ ul li {
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.bno}</td>
-				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}'>${list.title}</a></td>
+				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}&type=${cri.type}&keyword=${cri.keyword}'>${list.title}</a></td>
 				<td>${list.writer}</td>
 				<td>${list.regdate}</td>
 			</tr>
@@ -102,11 +102,8 @@ ul li {
 			endPage = Math.ceil(pageNo / 10.0) * 10;
 			startPage = endPage - 9;
 			var tempLast = Math.ceil(criteria.totalCount / criteria.perPage);
-			console.log('템프 라스트 : ' + tempLast);
 			console.log('시작페이지: ' + startPage, '  마지막페이지: ' + endPage);
-
 			endPage = tempLast < endPage ? tempLast : endPage;
-
 			console.log('IF 후 시작페이지: ' + startPage, '  마지막페이지: ' + endPage);
 			prev = startPage == 1 ? false : true;
 			next = tempLast > endPage ? true : false;
@@ -127,36 +124,35 @@ ul li {
 			return str;
 		}
 
-		$(document).ready(
-				function() {
-					var cri = {
-						pageNo : ${cri.pageNo},
-						totalCount : ${cri.totalCount},
-						perPage : ${cri.perPage},
-						searchType : '${cri.type}',
-						keyword : '${cri.keyword}'
-					};
-					
-					console.log(cri);
-					var targetUL = $("#pageUL");
-					targetUL.html(makePage(cri));
-
-					targetUL.on("click", "li a", function(event) {
-						event.preventDefault();
-						var targetPage = $(this).attr("href");
-						console.log('타겟 페이지 : ' + targetPage);
-						self.location = targetPage;
-					});
-
-					var options = $("#searchType option");
-					console.log('option size = ' + options.size());
-					$("#searchType option[value=" + cri.searchType + "]").attr(
-							"selected", "true");
-
-					$("#keyword").val(cri.keyword);
-
-				});
-	</script>
+$(document).ready(
+	function() {
+	
+		var cri = {
+			pageNo : ${cri.pageNo},
+			totalCount : ${cri.totalCount},
+			perPage : ${cri.perPage},
+			type : '${cri.type}',
+			keyword : '${cri.keyword}'
+		};
+		
+		var targetUL = $("#pageUL");
+		targetUL.html(makePage(cri));
+	
+		targetUL.on("click", "li a", function(event) {
+			event.preventDefault();
+			var targetPage = $(this).attr("href");
+			console.log('타겟 페이지 : ' + targetPage);
+			self.location = targetPage;
+		});
+	
+		var options = $("#searchType option");
+		console.log('option size = ' + options.size());
+		$("#searchType option[value="+cri.type+"]").attr("selected","true");
+	
+		$("#keyword").val(cri.keyword);
+	
+});
+</script>
 <%@include file="../include/footer.jsp"%>
 </body>
 </html>

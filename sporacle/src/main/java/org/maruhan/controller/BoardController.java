@@ -28,11 +28,12 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/slist", method= RequestMethod.GET)
-	public void listSearch(@ModelAttribute("cri")Criteria cri , Model model) throws Exception{
+	public void listSearch(@ModelAttribute("cri")Criteria cri ,HttpServletRequest request, Model model) throws Exception{
 		
 		logger.info("================================");
 		logger.info(cri.toString());
 		logger.info("================================");
+		
 		
 		int totalCount = service.totalCount(cri);
 		System.out.println(totalCount);
@@ -48,9 +49,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/list")
 	public String listAll(@ModelAttribute("cri")Criteria cri, Model model) throws Exception{
-		logger.info("BoardController........ info");
-		cri.setKeyword("w");
-		
+		logger.info("BoardController........ list");
 		model.addAttribute("list", service.list());
 		return "/board/list";
 		
