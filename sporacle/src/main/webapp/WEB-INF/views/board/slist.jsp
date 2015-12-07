@@ -111,7 +111,8 @@ ul li {
 
 			if (prev) {
 				str += "<li><a href='/board/slist?pageNo=" + (startPage - 1)
-						+ "'> << </a></li>";
+				+"&totalCount="+criteria.totalCount+"&keyword="+criteria.keyword
+				+"&type="+criteria.type+"'><< </a></li>";
 			}
 			for (var i = startPage; i <= endPage; i++) {
 				str += "<li><a href='/board/slist?pageNo=" + i +"&totalCount="+criteria.totalCount+"&keyword="+criteria.keyword
@@ -120,7 +121,8 @@ ul li {
 			}
 			if (next) {
 				str += "<li><a href='/board/slist?pageNo=" + (endPage + 1)
-						+ "'> >> </a></li>";
+				+"&totalCount="+criteria.totalCount+"&keyword="+criteria.keyword
+				+"&type="+criteria.type+"'> >> </a></li>";
 			}
 
 			return str;
