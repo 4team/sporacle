@@ -62,7 +62,7 @@ ul li {
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.bno}</td>
-				<td><a href='"/board/read?bno="${list.bno}'>${list.title}</a></td>
+				<td><a href='/board/read?bno=${list.bno}'>${list.title}</a></td>
 				<td>${list.writer}</td>
 				<td>${list.regdate}</td>
 			</tr>
