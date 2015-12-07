@@ -4,7 +4,7 @@ public class Criteria {
 	
 	private Integer pageNo;
 	private int perPage;
-	private int totalCount;
+	private Integer totalCount;
 	private Integer bno;
 
 	private String type;
@@ -32,9 +32,30 @@ public class Criteria {
 		if(keyword!=null){
 			str+="&keyword="+getKeyword();
 		}
+		if(totalCount != null){
+			str+="&totalCount="+getTotalCount();
+		}
 		return str;
 	}
 	
+	public String getPaging(){
+		
+		String str = "&totalCount="+totalCount;
+		
+		if(bno!=null){
+			str+="&bno="+getBno();
+		}
+		
+		if(type!=null){
+			str+="&type="+getType();
+		}
+		
+		if(keyword!=null){
+			str+="&keyword="+getKeyword();
+		}
+
+		return str;
+	}
 	
 	
 	
@@ -47,11 +68,11 @@ public class Criteria {
 		this.bno = bno;
 	}
 
-	public int getTotalCount() {
+	public Integer getTotalCount() {
 		return totalCount;
 	}
 
-	public void setTotalCount(int totalCount) {
+	public void setTotalCount(Integer totalCount) {
 		this.totalCount = totalCount;
 	}
 

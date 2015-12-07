@@ -57,6 +57,7 @@ ul li {
 
 <h1>List Page</h1>
 	${cri.toString()}
+	${cri.getLink() }
 	<table id="searchList">
 		<th>번호</th><th>제목</th><th>작성자</th><th>올린 날짜</th>
 		<c:forEach var="list" items="${list}">
@@ -113,8 +114,9 @@ ul li {
 						+ "'> << </a></li>";
 			}
 			for (var i = startPage; i <= endPage; i++) {
-				str += "<li><a href='/board/slist?pageNo=" + i + "'>" + i
-						+ "</a></li>";
+				str += "<li><a href='/board/slist?pageNo=" + i +"&totalCount="+criteria.totalCount+"&keyword="+criteria.keyword
+						+"&type="+criteria.type+"'>" + i
+						 + "</a></li>";
 			}
 			if (next) {
 				str += "<li><a href='/board/slist?pageNo=" + (endPage + 1)
