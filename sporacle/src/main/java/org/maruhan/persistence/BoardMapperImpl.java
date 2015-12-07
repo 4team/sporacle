@@ -15,7 +15,7 @@ public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implem
 
 	@Override
 	public int searchCount(Criteria cri) throws Exception {
-		return session.selectOne(namespace+".searchCount");
+		return session.selectOne(namespace+".searchCount",cri);
 	}
 
 	@Override

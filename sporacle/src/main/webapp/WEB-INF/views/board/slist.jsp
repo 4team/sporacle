@@ -62,7 +62,7 @@ ul li {
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.bno}</td>
-				<td><a href='/board/read?bno=${list.bno}'>${list.title}</a></td>
+				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}&type=${cri.type}&keyword=${cri.keyword}'>${list.title}</a></td>
 				<td>${list.writer}</td>
 				<td>${list.regdate}</td>
 			</tr>
@@ -71,24 +71,28 @@ ul li {
 
 	<p></p>
 
+
 	<div id="wrapper">
 		<div id="searchPage">
-			<select id="searchType">
+	<form>
+			<select id="searchType" name="type">
 				<option value="n">-</option>
 				<option value="t">제목</option>
 				<option value="c">내용</option>
 				<option value="w">작성자</option>
 				<option value="tc">제목+내용</option>
 				<option value="tw">제목+작성자</option>
-			</select> <input id="keyword" type="text" name="keyword">
+			</select> 
+				<input id="keyword" type="text" name="keyword">
+				<input type="submit" value="검색">
+	</form>
 
 
 			<ul class="pagination" id="pageUL">
 			</ul>
 		</div>
 	</div>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
 	<script>
 		function makePage(criteria) {
 			var startPage, endPage, prev, next;
@@ -98,11 +102,8 @@ ul li {
 			endPage = Math.ceil(pageNo / 10.0) * 10;
 			startPage = endPage - 9;
 			var tempLast = Math.ceil(criteria.totalCount / criteria.perPage);
-			console.log('템프 라스트 : ' + tempLast);
 			console.log('시작페이지: ' + startPage, '  마지막페이지: ' + endPage);
-
 			endPage = tempLast < endPage ? tempLast : endPage;
-
 			console.log('IF 후 시작페이지: ' + startPage, '  마지막페이지: ' + endPage);
 			prev = startPage == 1 ? false : true;
 			next = tempLast > endPage ? true : false;
@@ -123,34 +124,35 @@ ul li {
 			return str;
 		}
 
-		$(document).ready(
-				function() {
-					var cri = {
-						pageNo : 2,
-						totalCount : 138,
-						perPage : 10,
-						searchType : 'w',
-						keyword : '안녕'
-					};
-					var targetUL = $("#pageUL");
-					targetUL.html(makePage(cri));
-
-					targetUL.on("click", "li a", function(event) {
-						event.preventDefault();
-						var targetPage = $(this).attr("href");
-						console.log('타겟 페이지 : ' + targetPage);
-						self.location = targetPage;
-					});
-
-					var options = $("#searchType option");
-					console.log('option size = ' + options.size());
-					$("#searchType option[value=" + cri.searchType + "]").attr(
-							"selected", "true");
-
-					$("#keyword").val(cri.keyword);
-
-				});
-	</script>
+$(document).ready(
+	function() {
+	
+		var cri = {
+			pageNo : ${cri.pageNo},
+			totalCount : ${cri.totalCount},
+			perPage : ${cri.perPage},
+			type : '${cri.type}',
+			keyword : '${cri.keyword}'
+		};
+		
+		var targetUL = $("#pageUL");
+		targetUL.html(makePage(cri));
+	
+		targetUL.on("click", "li a", function(event) {
+			event.preventDefault();
+			var targetPage = $(this).attr("href");
+			console.log('타겟 페이지 : ' + targetPage);
+			self.location = targetPage;
+		});
+	
+		var options = $("#searchType option");
+		console.log('option size = ' + options.size());
+		$("#searchType option[value="+cri.type+"]").attr("selected","true");
+	
+		$("#keyword").val(cri.keyword);
+	
+});
+</script>
 <%@include file="../include/footer.jsp"%>
 </body>
 </html>
