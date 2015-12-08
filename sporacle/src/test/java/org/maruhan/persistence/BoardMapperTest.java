@@ -20,9 +20,9 @@ public class BoardMapperTest extends DataSourceTest {
 	@Test 
 	public void createTest() throws Exception{ //완료
 		BoardVO board = new BoardVO();
-		board.setTitle("sporacle에서 테스트하는 제목");
-		board.setContent("내용이니깐.ㅎ");
-		board.setWriter("마루한님");
+		board.setTitle("한번 긴 제목의 게시글을 테스트 해보자... 엄청 길게!!!!ㅋㅋㅋㅋㅋㅋㅋㅋ");
+		board.setContent("메롱다");
+		board.setWriter("작성자의이름최대는이");
 		mapper.create(board);
 	}
 	

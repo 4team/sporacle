@@ -1,0 +1,53 @@
+ #searchList{
+	width: 100%;
+	
+}
+
+#searchList{
+	background-color: #FFDFDF;
+	border-collapse: collapse;
+	padding : 10px;
+}
+
+#searchList th{
+	font-weight: bold;
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+td{
+	padding: 2px 0px 2px 5px;
+	font-size: 12px;
+	
+}
+
+#searchList tr:hover{
+	background-color: #FFFFEF;
+}
+
+#searchList tr td a{
+	text-decoration: none;
+	color:#000000;
+}
+
+
+ul li {
+	float: left;
+	text-decoration: none;
+	list-style: none;
+	padding: 5px;
+}
+
+#wrapper{
+	width:100%;
+}
+
+#searchPage {
+	width:600px;
+	margin-left: 30%;
+}
+
+
+#addBoard{
+	float: right;
+}
