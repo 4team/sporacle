@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.maruhan.persistence.RouteMapper">
+	<select id="read" resultType="org.maruhan.domain.RouteVO">
+		select * from tbl_route where routeno = #{bno}
+	</select>
+	
+	<insert id="create">
+		insert into tbl_route(routeno,routename,lat,lng) values(seq_route.nextval,#{routename},#{lat},#{lng})
+	</insert>
+	
+	<select id="listAll" resultType="org.maruhan.domain.RouteVO">
+		select * from tbl_route
+	</select>
+	
+</mapper>
+ 
+ 
