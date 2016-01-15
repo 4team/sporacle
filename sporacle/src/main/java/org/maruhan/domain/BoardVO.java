@@ -7,6 +7,7 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String writer;
+	private int replycnt;
 	private Date regdate;
 	private Date updatedate;
 
@@ -34,6 +35,13 @@ public class BoardVO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	public int getReplycnt() {
+		return replycnt;
+	}
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
 	}
 	public Date getRegdate() {
 		return regdate;

@@ -9,4 +9,6 @@ public interface BoardMapper extends CRUDMapper<BoardVO, Integer> {
 	public List<BoardVO> search(Criteria cri) throws Exception;
 	public int searchCount(Criteria cri) throws Exception;
 	public List<BoardVO> list();
+	
+	public void updateReplyCnt(Integer bno, int amount) throws Exception;
 }

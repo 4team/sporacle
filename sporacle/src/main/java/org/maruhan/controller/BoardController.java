@@ -78,7 +78,7 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/read" , method= RequestMethod.GET)
-	public String readGET(@ModelAttribute("cri")Criteria cri,@RequestParam("bno") int bno, Model model) throws Exception{
+	public String readGET(@ModelAttribute("reCri")Criteria reCri,@ModelAttribute("cri")Criteria cri,@RequestParam("bno") int bno, Model model) throws Exception{
 		logger.info("Read get......");
 		
 		model.addAttribute("read", service.view(bno));

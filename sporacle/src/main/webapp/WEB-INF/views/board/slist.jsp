@@ -14,7 +14,7 @@
 		<c:forEach var="list" items="${list}">
 			<tr>
 				<td>${list.bno}</td>
-				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}&type=${cri.type}&keyword=${cri.keyword}'>${list.title}</a></td>
+				<td><a href='/board/read?pageNo=${cri.pageNo}&bno=${list.bno}&type=${cri.type}&keyword=${cri.keyword}'>${list.title} [${list.replycnt }]</a></td>
 				<td>${list.writer}</td>
 				<td>${list.regdate}</td>
 			</tr>
